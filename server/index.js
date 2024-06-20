@@ -9,7 +9,8 @@ const app=express();
 require('dotenv').config();
 
 const allowedOrigins = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "chat-app-blond-nine.vercel.app"
 
 ]
 
