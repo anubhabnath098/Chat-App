@@ -91,7 +91,7 @@ const Container = styled.div`
     }
 
     @media screen and (max-width:720px){
-        height:96vh;
+        height:90vh;
         width:90vw;
         grid-template-columns:20% 80%;
 

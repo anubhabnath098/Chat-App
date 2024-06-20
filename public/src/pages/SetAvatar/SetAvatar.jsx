@@ -116,14 +116,25 @@ const Container = styled.div`
   background-color: #131324;
 
   .title-container {
+    @media screen and (max-width:720px){
+        margin-top:2rem;
+      }
     h1 {
       color: white;
+      @media screen and (max-width:720px){
+        font-size:1rem;
+      }
     }
   }
 
   .avatars {
+    
+    
     display: flex;
     gap: 2rem;
+    @media screen and (max-width:720px){
+      flex-direction:column;
+    }
 
     .avatar {
       border: 0.4rem solid transparent;
@@ -145,6 +156,10 @@ const Container = styled.div`
   }
 
   .submit-btn {
+    @media screen and (max-width:720px){
+        position:relative;
+        bottom:30px;
+      }
     background-color: #4e0eff;
     color: white;
     padding: 1rem 2rem;

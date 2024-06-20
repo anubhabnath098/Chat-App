@@ -10,7 +10,7 @@ require('dotenv').config();
 
 const allowedOrigins = [
     "http://localhost:3000",
-    "chat-app-blond-nine.vercel.app"
+    "https://chat-app-blond-nine.vercel.app"
 
 ]
 
@@ -42,7 +42,7 @@ const server = app.listen(process.env.PORT,()=>{
 const io=socket(server,{
     cors:{
         origin:allowedOrigins,
-        Credentials:true,
+        credentials:true,
     }
 })
 
