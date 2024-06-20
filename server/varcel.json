@@ -8,16 +8,8 @@
     ],
     "routes": [
       {
-        "src": "/api/auth(.*)",
-        "dest": "/index.js"
-      },
-      {
-        "src": "/api/messages(.*)",
-        "dest": "/index.js"
-      },
-      {
-        "src": "/socket.io(.*)",
-        "dest": "/index.js"
+        "src": "/(.*)",
+        "dest": "/"
       }
     ]
 
