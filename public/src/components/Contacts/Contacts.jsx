@@ -7,6 +7,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     const [currentUserName, setCurrentUserName] = useState(undefined)
     const [currentUserImage, setCurrentUserImage] = useState(undefined)
     const [currentSelected, setCurrentSelected] = useState(undefined);
+    const [searchTerm, setSearchTerm] = useState("");
     useEffect(()=>{
         if(currentUser){
             setCurrentUserImage(currentUser.avatarImage)
@@ -19,16 +20,23 @@ export default function Contacts({contacts, currentUser, changeChat}) {
         changeChat(contact)
 
     }
+    const clientContact = contacts.filter(contact => 
+        searchTerm !== "" ? contact.username.includes(searchTerm) : true
+    );
+    
   return <>
   {currentUserName&& currentUserImage&&(
     <Container>
         <div className="brand">
             <img src={logo} alt="" />
-            <h3>umbchat</h3>
+            <div class="inputcontainer">
+                <input type="text" placeholder='search for user' value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}/>
+            </div>
+            
         </div>
         <div className="contacts">
             {
-                contacts.map((contact, index)=>{
+                clientContact.map((contact, index)=>{
                     return(
                         <div className={`contact ${index===currentSelected ? "selected":""}`} key ={index}
                         onClick ={()=>changeCurrentChat(index,contact)}
@@ -59,6 +67,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
 
 const Container = styled.div`
     width:100%;
+    height:85vh;
     display:grid;
     grid-template-rows:10% 75% 15%;
     
@@ -71,8 +80,15 @@ const Container = styled.div`
         img{
             height:2.2rem;
         }
-        h3{
+        input{
+            padding:0.5rem;
+            margin-left:0.1rem;
+            border-radius:0.4rem;
             color:white;
+            outline:none;
+            background-color:transparent;
+            border-color:#9186f3;
+            border-width:1px;
         }
     }
     .contacts{
@@ -81,6 +97,8 @@ const Container = styled.div`
         align-items:center;
         overflow:auto;
         width:100%;
+        height:100%;
+        z-index:0;
         gap:0.8rem;
         
         &::-webkit-scrollbar{
@@ -156,8 +174,18 @@ const Container = styled.div`
         .brand{
             width:100%;
         }
-        .brand h3{
-            display:none;
+        .brand .inputcontainer{
+            position:absolute;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:100vw;
+            top:0rem;
+            left:0rem;
+            margin-top:1rem;
+        }
+        .inputcontainer input{
+            text-align:center;
         }
         .brand img{
             padding:0;

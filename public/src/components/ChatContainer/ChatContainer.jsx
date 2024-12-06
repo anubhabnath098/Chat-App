@@ -104,7 +104,7 @@ const Container = styled.div`
     display: grid;
     grid-template-rows: 10% 78% 12%;
     padding-top: 1rem;
-    height: 100%;
+    height: 85vh;
     width: 100%;
     overflow: hidden;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
