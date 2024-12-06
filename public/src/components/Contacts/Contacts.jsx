@@ -175,16 +175,20 @@ const Container = styled.div`
             width:100%;
         }
         .brand .inputcontainer{
+            
             position:absolute;
             display:flex;
             align-items:center;
             justify-content:center;
             width:100vw;
+            height:10vh;
             top:0rem;
             left:0rem;
-            margin-top:1rem;
+            margin-top:0.5rem;
+            margin-bottom:0.5rem;
         }
         .inputcontainer input{
+            background-color:#000000;
             text-align:center;
         }
         .brand img{

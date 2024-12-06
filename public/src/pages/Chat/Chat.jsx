@@ -78,6 +78,7 @@ const Container = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: #131324;
+  
 
   .container {
     height: 85vh;
@@ -91,6 +92,7 @@ const Container = styled.div`
     }
 
     @media screen and (max-width:720px){
+        overflow:scroll;
         height:90vh;
         width:90vw;
         grid-template-columns:20% 80%;
