@@ -23,11 +23,11 @@ const Container = styled.div`
     flex-direction:column;
     color:#9186f3;
     img{
-        height:30%;
+        height:40%;
         padding:1rem;
         @media screen and (max-width:720px){
           height:40%;
-          width:100%;
+          width:80%;
           padding:1rem;
         }
     }

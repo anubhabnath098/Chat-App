@@ -5,8 +5,9 @@ import Chatinput from '../Chatinput/Chatinput';
 import axios from 'axios';
 import { sendMessageRoute, getAllMessagesRoute } from '../../utils/APIRoutes';
 import { v4 as uuidv4 } from "uuid";
+import Menu from '../Menu/Menu';
 
-export default function ChatContainer({ currentChat, currentUser, socket }) {
+export default function ChatContainer({ currentChat, currentUser, socket}) {
     const [messages, setMessages] = useState([]);
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const scrollRef = useRef();
@@ -79,7 +80,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
                                 <h3>{currentChat.username}</h3>
                             </div>
                         </div>
-                        <Logout />
+                        <Logout className="widelogout"/>
                     </div>
 
                     <div className="chat-messages">
@@ -92,6 +93,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
                                 </div>
                             </div>
                         ))}
+                        
                     </div>
                     <Chatinput handleSendMsg={handleSendMsg} />
                 </Container>
@@ -111,9 +113,13 @@ const Container = styled.div`
         grid-auto-rows: 15% 70% 15%;
     }
     @media screen and (max-width:720px){
-        grid-template-rows: 13% 80% 7%;
+        grid-template-rows: 13% 75% 9%;
+        .widelogout{
+            display:none;
+        }
         
     }
+    
     .chat-header {
         display: flex;
         justify-content: space-between;

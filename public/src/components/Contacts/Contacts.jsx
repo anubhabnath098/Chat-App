@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import logo from "../../assets/logo.png"
 
 
-export default function Contacts({contacts, currentUser, changeChat}) {
+export default function Contacts({contacts, currentUser, changeChat, searchTerm}) {
     const [currentUserName, setCurrentUserName] = useState(undefined)
     const [currentUserImage, setCurrentUserImage] = useState(undefined)
     const [currentSelected, setCurrentSelected] = useState(undefined);
-    const [searchTerm, setSearchTerm] = useState("");
     useEffect(()=>{
         if(currentUser){
             setCurrentUserImage(currentUser.avatarImage)
@@ -21,7 +20,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
 
     }
     const clientContact = contacts.filter(contact => 
-        searchTerm !== "" ? contact.username.includes(searchTerm) : true
+        searchTerm.toLowerCase() !== "" ? contact.username.toLowerCase().includes(searchTerm.toLowerCase()) : true
     );
     
   return <>
@@ -29,10 +28,6 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     <Container>
         <div className="brand">
             <img src={logo} alt="" />
-            <div class="inputcontainer">
-                <input type="text" placeholder='search for user' value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}/>
-            </div>
-            
         </div>
         <div className="contacts">
             {
@@ -176,20 +171,7 @@ const Container = styled.div`
         }
         .brand .inputcontainer{
             
-            position:absolute;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            width:100vw;
-            height:10vh;
-            top:0rem;
-            left:0rem;
-            margin-top:0.5rem;
-            margin-bottom:0.5rem;
-        }
-        .inputcontainer input{
-            background-color:#000000;
-            text-align:center;
+           display:none;
         }
         .brand img{
             padding:0;

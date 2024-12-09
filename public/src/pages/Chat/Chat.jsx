@@ -8,6 +8,7 @@ import Contacts from '../../components/Contacts/Contacts';
 import Welcome from '../../components/Welcome/Welcome';
 import ChatContainer from '../../components/ChatContainer/ChatContainer';
 import { io } from "socket.io-client";
+import Menu from '../../components/Menu/Menu';
 
 
 export default function Chat() {
@@ -17,6 +18,7 @@ export default function Chat() {
     const [currentUser, setCurrentUser] = useState(undefined);
     const [currentChat, setCurrentChat] = useState(undefined);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -59,8 +61,9 @@ export default function Chat() {
 
     return (
         <Container>
+            <Menu searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
             <div className="container">
-                <Contacts contacts={contacts} currentUser={currentUser} changeChat = {handleChatChange}/>
+                <Contacts contacts={contacts} currentUser={currentUser} changeChat = {handleChatChange} searchTerm={searchTerm}/>
                 {isLoaded && currentChat===undefined?<Welcome currentUser={currentUser}/>:
                 <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>}
             </div>
