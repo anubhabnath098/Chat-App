@@ -114,6 +114,7 @@ const Container = styled.div`
     }
     @media screen and (max-width:720px){
         grid-template-rows: 13% 75% 9%;
+        height:80vh;
         .widelogout{
             display:none;
         }

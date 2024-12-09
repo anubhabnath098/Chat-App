@@ -96,8 +96,8 @@ const Container = styled.div`
 
     @media screen and (max-width:720px){
         overflow:scroll;
-        height:90vh;
-        width:90vw;
+        height:80vh;
+        width:95vw;
         grid-template-columns:20% 80%;
 
     }

@@ -166,6 +166,7 @@ const Container = styled.div`
       }
     }
     @media screen and (max-width: 720px){
+        height:80vh;
         .brand{
             width:100%;
         }
