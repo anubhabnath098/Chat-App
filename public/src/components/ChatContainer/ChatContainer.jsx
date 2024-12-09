@@ -109,6 +109,14 @@ const Container = styled.div`
     height: 85vh;
     width: 100%;
     overflow: hidden;
+    .content {
+            max-width: 40%;
+            overflow-wrap: break-word;
+            color: #d1d1d1;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 1rem;
+        }
     @media screen and (min-width: 720px) and (max-width: 1080px) {
         grid-auto-rows: 15% 70% 15%;
     }
@@ -117,6 +125,9 @@ const Container = styled.div`
         height:80vh;
         .widelogout{
             display:none;
+        }
+        .content{
+            max-width:70%;
         }
         
     }
@@ -158,27 +169,20 @@ const Container = styled.div`
             border-radius: 6px;
         }
 
-        .content {
-            max-width: 40%;
-            overflow-wrap: break-word;
-            color: #d1d1d1;
-            padding: 1rem;
-            font-size: 1.1rem;
-            border-radius: 1rem;
-        }
+        
 
         .sended {
             display: flex;
             justify-content: flex-end;
             .content {
-                background-color: #4f04ff21;
+                background-color: #5a2cc6c2;
             }
         }
         .received {
             display: flex;
             justify-content: flex-start;
             .content {
-                background-color: #9900ff20;
+                background-color: #3b055ff2;
             }
         }
     }
