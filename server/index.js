@@ -56,8 +56,15 @@ io.on("connection", (socket)=>{
 
     socket.on("send-msg", (data)=>{
         const sendUserSocket = onlineUsers.get(data.to);
+        console.log(`Sending message to user: ${data.to}, socket: ${sendUserSocket}`);
         if(sendUserSocket){
-            socket.to(sendUserSocket).emit("msg-receive", data.message);
+          // console.log(data);
+            socket.to(sendUserSocket).emit("msg-receive", {message:data.message, image:data.image});
+            console.log(`Message sent to user: ${data.to}`);
         }
+       else {
+          console.log(`User with ID ${data.to} is not online.`);
+      }
     });
 })
+  

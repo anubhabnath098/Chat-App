@@ -38,7 +38,7 @@ export default function Chat() {
             socket.current = io(host);
             socket.current.emit("add-user", currentUser._id);
         }
-    },[currentUser])
+    },[currentUser, socket])
 
     useEffect(() => {
         const getCurrentUser = async () => {
